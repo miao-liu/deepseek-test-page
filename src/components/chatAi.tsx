@@ -34,6 +34,14 @@ const Chat: React.FC = () => {
   });
 
   const handleSend = () => {
+     if(loading) {
+      alert('请稍后，正在回答中')
+      return
+    }
+    if(input.trim() === "") {
+      alert('请输入问题')
+      return
+    }
     if (input.trim()) {
       setMessages([...messages, { sender: "user", text: input }]);
       setLoading(true);

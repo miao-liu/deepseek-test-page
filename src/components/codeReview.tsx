@@ -5,7 +5,7 @@ import "../styles/chat.css";
 import { MastraClient } from "@mastra/client-js";
 
 const client = new MastraClient({
-  baseUrl: process.env.MASTRA_API || '',
+  baseUrl: 'https://mastra-cr-agent.1324282944.workers.dev',
 });
 
 const agent = client.getAgent('CodeReviewAgent')

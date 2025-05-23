@@ -5,7 +5,7 @@ import CodeReview from "./components/codeReview";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: process.env.CHAT_API || '',
+  uri: 'https://deepseek-test-workers.1324282944.workers.dev/graphql',
   cache: new InMemoryCache()
 })
 

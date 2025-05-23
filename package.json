@@ -12,10 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/client": "^3.13.8",
+    "@mastra/client-js": "^0.10.0",
     "graphql": "^16.11.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-markdown": "^10.1.0"
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",

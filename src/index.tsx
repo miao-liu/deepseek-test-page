@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import Chat from "./components/chatAi";
+import CodeReview from "./components/codeReview";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
   uri: "https://deepseek-test-workers.1324282944.workers.dev/graphql",
   cache: new InMemoryCache()
 })
-const App:React.FC = () => {
+
+const App: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'chat' | 'codeReview'>('chat');
+
   return (
     <ApolloProvider client={client}>
-      <Chat />
+      <div className="app-container">
+        <nav className="navbar">
+          <button
+            className={`nav-button ${activeTab === 'chat' ? 'active' : ''}`}
+            onClick={() => setActiveTab('chat')}
+          >
+            AI 聊天
+          </button>
+          <button
+            className={`nav-button ${activeTab === 'codeReview' ? 'active' : ''}`}
+            onClick={() => setActiveTab('codeReview')}
+          >
+            AI 代码审查
+          </button>
+        </nav>
+        <div className="content">
+          {activeTab === 'chat' ? <Chat /> : <CodeReview />}
+        </div>
+      </div>
     </ApolloProvider>
   )
 };
